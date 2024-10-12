@@ -1,9 +1,9 @@
 #include <iostream>
 
+#include <parser.h>
+
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        throw std::runtime_error("Incorrect arguments to execute the command");
-    }
+    auto args = Parser().Run(argc, argv);
 
     return 0;
 }
