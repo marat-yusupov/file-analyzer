@@ -1,14 +1,17 @@
-#include <parser.h>
+#include <io/models/args.h>
+#include <io/parser.h>
+
+namespace io {
 
 Parser::~Parser() {}
 
 // TODO: Проверка на переданную "." (путь текущей папке)
-Args Parser::Run(int argc, char* argv[]) {
+models::Args Parser::Run(int argc, char* argv[]) {
     if (argc < 2) {
         throw std::runtime_error("Incorrect arguments to execute the command");
     }
 
-    Args result;
+    models::Args result;
     result.SourcePath = argv[1];
 
     if (argc < 3) {
@@ -32,3 +35,5 @@ Args Parser::Run(int argc, char* argv[]) {
 
     return result;
 }
+
+}  // namespace io

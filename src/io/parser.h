@@ -1,10 +1,9 @@
 #include <string>
 #include <vector>
 
-struct Args {
-    std::string SourcePath;
-    std::vector<std::string> HeaderPathList;
-};
+#include <io/forward.h>
+
+namespace io {
 
 class Parser {
     static constexpr std::string HEADER_PATH_KEY = "-I";
@@ -12,5 +11,7 @@ class Parser {
 public:
     ~Parser();
 
-    Args Run(int argc, char* argv[]);
+    models::Args Run(int argc, char* argv[]);
 };
+
+}  // namespace io
