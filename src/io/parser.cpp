@@ -3,7 +3,7 @@
 
 namespace io {
 
-Parser::~Parser() {}
+Parser::~Parser() = default;
 
 // TODO: Проверка на переданную "." (путь текущей папке)
 models::Args Parser::Run(int argc, char* argv[]) {
@@ -20,17 +20,15 @@ models::Args Parser::Run(int argc, char* argv[]) {
     }
 
     for (int i = 2; i < argc; i++) {
-        if (argv[i] == HEADER_PATH_KEY) {
-            if (i + 1 == argc) {
-                throw std::runtime_error("Expect header path after \"-I\"");
-            }
-
-            i++;
-            result.HeaderPathList.push_back(argv[i]);
-            continue;
+        if (argv[i] != HEADER_PATH_KEY) {
         }
 
-        continue;
+        if (i + 1 == argc) {
+            throw std::runtime_error("Expect header path after \"-I\"");
+        }
+
+        i++;
+        result.HeaderPathList.emplace_back(argv[i]);
     }
 
     return result;

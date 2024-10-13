@@ -1,7 +1,6 @@
-#include <string>
-#include <vector>
+#pragma once
 
-#include <io/forward.h>
+#include <string>
 
 namespace io {
 
@@ -11,7 +10,7 @@ class Parser {
 public:
     ~Parser();
 
-    models::Args Run(int argc, char* argv[]);
+    static models::Args Run(int argc, char* argv[]);
 };
 
 }  // namespace io

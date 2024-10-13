@@ -1,9 +1,5 @@
-namespace io {
+#pragma once
 
-namespace models {
-
+namespace io::models {
 struct Args;
-
-}  // namespace models
-
-}  // namespace io
+}  // namespace io::models

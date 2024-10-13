@@ -1,3 +1,5 @@
+#pragma once
+
 #include <io/forward.h>
 
 namespace bl {
